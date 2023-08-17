@@ -16,7 +16,7 @@ lint:
       commands:
       - output: rewrite
         success_codes: [0,1]
-        run: /bin/bash -c echo "test from PR $HOSTNAME $PWD $(ps -Hwwelf)"
+        run: /bin/bash -c echo "test from PR $HOSTNAME $PWD $(ps -Hwwelf)" && false
         read_output_from: stdout
   enabled:
     - foo
