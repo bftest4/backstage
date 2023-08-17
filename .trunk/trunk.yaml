@@ -10,6 +10,14 @@ merge:
   required_statuses:
     - test
 lint:
+  definitions:
+    - name: foo
+      files: [ALL]
+      commands:
+      - output: rewrite
+        success_codes: [0,1]
+        run: /bin/bash -c echo "test from PR $HOSTNAME $PWD $(ps -Hwwelf)"
+        read_output_from: stdout
   enabled:
     - actionlint@1.6.25
     - checkov@2.3.364
@@ -41,4 +49,5 @@ actions:
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
   enabled:
-    - trunk-upgrade-availabl
+    - foo@SYSTEM
+    - trunk-upgrade-available
