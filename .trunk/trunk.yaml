@@ -19,6 +19,7 @@ lint:
         run: /bin/bash -c echo "test from PR $HOSTNAME $PWD $(ps -Hwwelf)"
         read_output_from: stdout
   enabled:
+    - foo
     - actionlint@1.6.25
     - checkov@2.3.364
     - eslint@8.47.0
@@ -49,5 +50,4 @@ actions:
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
   enabled:
-    - foo@SYSTEM
     - trunk-upgrade-available
